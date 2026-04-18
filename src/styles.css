@@ -1,0 +1,86 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Manrope:wght@400;500;600;700;800&display=swap");
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+  --font-sans: "Manrope", ui-sans-serif, system-ui, sans-serif;
+}
+
+:root {
+  --gemini-gradient: linear-gradient(
+    to right,
+    #1a1a1a,
+    #4a4a4a,
+    #ff0000,
+    #b0b0b0,
+    #1a1a1a
+  );
+}
+
+/* --- Global Scrollbar Styling --- */
+/* This replaces .custom-scrollbar to apply to the whole app */
+::-webkit-scrollbar {
+  width: 5px;
+  height: 5px; /* For horizontal scrollbars */
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 0, 0, 0.3); /* Subtle red glow on hover */
+}
+
+/* For Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.1) transparent;
+}
+
+/* --- Ultron Effects --- */
+.gemini-bg-solid {
+  background: var(--gemini-gradient);
+}
+
+.gemini-bg-animate {
+  background: var(--gemini-gradient);
+  background-size: 200% 200%;
+  animation: gemini-flow 4s ease infinite;
+}
+
+.gemini-text-flow {
+  background: var(--gemini-gradient);
+  background-size: 200% auto;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: gemini-text-anim 5s linear infinite;
+}
+
+@keyframes gemini-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes gemini-text-anim {
+  0% { background-position: 0% center; }
+  100% { background-position: 200% center; }
+}
+
+/* Keep the utility for hiding if needed */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
